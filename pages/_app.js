@@ -1,7 +1,22 @@
-import '../styles/globals.css'
+import { ThemeProvider } from 'next-themes';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+import '../styles/globals.css';
 
-export default MyApp
+
+// function MyApp({ Component, pageProps }) {
+//   return <Component {...pageProps} />;
+// }
+
+const MyApp = ({ Component, pageProps }) => (
+  <ThemeProvider attribute='class'>
+    <div className='dark:bf-nft-dark bg-white-min-h-screen'>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </div>
+  </ThemeProvider>
+);
+
+export default MyApp;
