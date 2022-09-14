@@ -1,10 +1,15 @@
+import React, { useState, useEffect, useContext } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from 'next/router';
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useContext } from "react";
 import images from "../assets";
 
-const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
+import { Button } from "./";
+
+
+
+const MenuItems = ({ isMobile, active, setActive }) => {
     const generateLink = (i) => {
         switch (i) {
             case 0: return '/';
@@ -32,6 +37,24 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
     );
 };
 
+const ButtonGroup = ({ setActive, router }) => {
+    const hasConnected = false;
+    return hasConnected ? (
+        <Button
+            btnName="Create"
+            classStyles="mx-2 rounded-xl"
+            handleClick={() => {
+                setActive('');
+                router.push('/create-nft');
+            }}
+        />
+    ) : (
+        <Button
+            btnName="Connect"
+            classStyles="mx-2 rounded-xl"
+        />
+    );
+};
 
 const Navbar = () => {
     const { theme, setTheme } = useTheme();
@@ -65,6 +88,9 @@ const Navbar = () => {
             </div>
             <div className="flex md:hidden">
                 <MenuItems active={active} setActive={setActive} />
+                <div className="ml-4">
+                    <ButtonGroup setActive={setActive} />
+                </div>
             </div>
         </nav>
     );
