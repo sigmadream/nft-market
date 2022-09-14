@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import { useState, useEffect, useContext } from "react";
 import images from "../assets";
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
@@ -19,7 +19,9 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
             {['Explore NFTs', 'Listed NFTs', 'My NFTs'].map((item, i) => (
                 <li
                     key={i}
-                    onClick={() => { }}
+                    onClick={() => {
+                        setActive(item);
+                    }}
                     className={`flex flex-row items-center font-poppins font-semibold text-base dark:hover:text-white hover:text-nft-dark mx-3 
                     ${active === item ? 'dark:text-white text-nft-black-1' : 'dark:text-nft-gray-3 text-nft-gray-2'}`}
                 >
@@ -30,8 +32,10 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
     );
 };
 
+
 const Navbar = () => {
     const { theme, setTheme } = useTheme();
+    const [active, setActive] = useState('Explore NFTs');
 
     return (
         <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
@@ -60,7 +64,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="flex md:hidden">
-                <MenuItems />
+                <MenuItems active={active} setActive={setActive} />
             </div>
         </nav>
     );
