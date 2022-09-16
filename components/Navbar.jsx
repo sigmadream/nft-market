@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useTheme } from "next-themes";
-import { useRouter } from 'next/router';
 import Link from "next/link";
 import Image from "next/image";
 import images from "../assets";
 
 import { Button } from "./";
-
 
 
 const MenuItems = ({ isMobile, active, setActive }) => {
@@ -130,7 +128,6 @@ const Navbar = () => {
         </nav>
     );
 };
-
 
 
 export default Navbar;

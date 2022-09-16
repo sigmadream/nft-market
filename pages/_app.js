@@ -4,11 +4,6 @@ import { Navbar, Footer } from '../components';
 
 import '../styles/globals.css';
 
-
-// function MyApp({ Component, pageProps }) {
-//   return <Component {...pageProps} />;
-// }
-
 const MyApp = ({ Component, pageProps }) => (
   <ThemeProvider attribute='class'>
     <div className='dark:bf-nft-dark bg-white-min-h-screen'>
@@ -17,7 +12,7 @@ const MyApp = ({ Component, pageProps }) => (
       <Footer />
     </div>
 
-    <Script src="https://kit.fontawesome.com/9526206854.js" crossorigin="anonymous" />
+    <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" crossorigin="anonymous" />
   </ThemeProvider>
 );
 
