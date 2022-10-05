@@ -42,8 +42,42 @@ const CreateNFT = () => {
                                 className={theme === 'light' ? 'filter invert' : ''}
                             />
                         </div>
+                        <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm">Drag and Drop File</p>
+                        <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-sm">or Browse media on your device</p>
                     </div>
                 </div>
+                {fileUrl && (
+                    <aside>
+                        <div>
+                            <img src={fileUrl} alt="asset_file" />
+                        </div>
+                    </aside>
+                )}
+            </div>
+            <Input
+                inputType="input"
+                title="Name"
+                placeholder="NFT Name"
+                handleClick={() => { }}
+            />
+            <Input
+                inputType="textarea"
+                title="Description"
+                placeholder="NFT Description"
+                handleClick={() => { }}
+            />
+            <Input
+                inputType="number"
+                title="Price"
+                placeholder="NFT Price"
+                handleClick={() => { }}
+            />
+            <div className="mt-10 w-full flex justify-center">
+                <Button
+                    btnName="Create NFT"
+                    classStyles="rounded-xl"
+                    handleClick={() => { }}
+                />
             </div>
         </div>
     );
