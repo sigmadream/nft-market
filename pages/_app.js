@@ -5,13 +5,14 @@ import { Navbar, Footer } from '../components';
 import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => (
-  <ThemeProvider attribute='class'>
-    <div className='dark:bf-nft-dark bg-white-min-h-screen'>
+  <ThemeProvider attribute="class">
+    <div className="dark:bg-nft-dark bg-white min-h-screen">
       <Navbar />
-      <Component {...pageProps} />
+      <div className="pt-65">
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </div>
-
     <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" crossorigin="anonymous" />
   </ThemeProvider>
 );
