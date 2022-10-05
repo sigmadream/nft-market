@@ -8,6 +8,7 @@ import { Button, Input } from '../components';
 
 const CreateNFT = () => {
     const [fileUrl, setFileUrl] = useState(null);
+    const [formInput, setFormInput] = useState({ name: '', description: '', price: '' });
     const { theme } = useTheme();
 
     const onDrop = useCallback(() => {
@@ -22,6 +23,8 @@ const CreateNFT = () => {
     const fileStyle = useMemo(() => (
         `dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5 rounded-sm border-dashed ${isDragActive && 'border-file-active'} ${isDragAccept && 'border-file-accept'} ${isDragReject && 'border-file-reject'}`
     ), [isDragActive, isDragAccept, isDragReject]);
+
+    console.log(formInput);
 
     return (
         <div className="flex justify-center sm:px-4 p-12">
@@ -58,19 +61,19 @@ const CreateNFT = () => {
                     inputType="input"
                     title="Name"
                     placeholder="NFT Name"
-                    handleClick={() => { }}
+                    handleClick={(e) => setFormInput({ ...formInput, name: e.target.value })}
                 />
                 <Input
                     inputType="textarea"
                     title="Description"
                     placeholder="NFT Description"
-                    handleClick={() => { }}
+                    handleClick={(e) => setFormInput({ ...formInput, description: e.target.value })}
                 />
                 <Input
                     inputType="number"
                     title="Price"
                     placeholder="NFT Price"
-                    handleClick={() => { }}
+                    handleClick={(e) => setFormInput({ ...formInput, price: e.target.value })}
                 />
                 <div className="mt-10 w-full flex justify-center">
                     <Button
