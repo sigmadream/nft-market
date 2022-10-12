@@ -33,3 +33,5 @@ $ npx hardhat run scripts/deploy.js
 * [Metamask](https://metamask.io/)
     * 가입 후 테스트 네트워크 활성화
     * Localhost 8546 -> 키 내보내기 -> `.secrect` 생성
+
+* VSCode 확장 중 [solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) 설치
