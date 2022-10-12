@@ -35,3 +35,4 @@ $ npx hardhat run scripts/deploy.js
     * Localhost 8546 -> 키 내보내기 -> `.secrect` 생성
 
 * VSCode 확장 중 [solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) 설치
+* contracts, scripts 및 기타 작성
