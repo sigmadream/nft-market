@@ -1,38 +1,28 @@
 # NFT Market
 
-## Step0
-
-> `next.js` 프로젝트 설정 및 코드 퀄리티(`ESLint`)를 위한 환경 설정
-
-* 설치
+- 설치
 
 ```
 $ npm install
 $ npm run dev
 ```
 
-## Step1
+- HardHat 설정
 
-> [https://tailwindcss.com/](https://tailwindcss.com/)를 활용한 Layout 구성
+  - `npm run node`
 
-## Step2
+  - [Metamask](https://metamask.io/) 설치 및 가입
 
-* [polygon](https://polygon.technology/)
-* [Hardhat](https://hardhat.org/)
+    - 설정 > 네트워크 > Localhost 8546 선택
+    - Localhost 8546 확인
+    - 매뉴 > 계정 세부 정보 > 비공개 키 내보내기 > 복사 후 > .secret 파일에 붙여넣기
 
-```
-$ npx hardhat
-$ npm install --save-dev "hardhat@^2.10.2" "@nomicfoundation/hardhat-toolbox@^1.0.1"
-$ npx hardhat help
-$ npx hardhat test
-$ GAS_REPORT=true npx hardhat test
-$ npx hardhat node
-$ npx hardhat run scripts/deploy.js
-```
+  - 이더리움 인터페이스 복사
 
-* [Metamask](https://metamask.io/)
-    * 가입 후 테스트 네트워크 활성화
-    * Localhost 8546 -> 키 내보내기 -> `.secrect` 생성
+    - `npx hardhat compile` 실행
+    - `artifacts/contracts`에서 `json` 파일을 context 폴더에 복사
 
-* VSCode 확장 중 [solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) 설치
-* contracts, scripts 및 기타 작성
+  - 마켓 주소 생성
+
+    - `npx hardhat run scripts/deploy.js`
+    - `NFTMarketplace deployed to: 0x5000000xx` 출력 결과 확인 후 복사

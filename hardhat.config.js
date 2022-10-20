@@ -1,8 +1,8 @@
+/** @type import('hardhat/config').HardhatUserConfig */
 const fs = require('fs');
-require("@nomicfoundation/hardhat-toolbox");
-require("@nomiclabs/hardhat-waffle");
+require('@nomiclabs/hardhat-waffle');
 
-const privateKey = fs.readFileSync(".secret").toString().trim() || "01234567890123456789";
+const privateKey = fs.readFileSync('.secret').toString().trim();
 
 module.exports = {
   networks: {
@@ -10,5 +10,5 @@ module.exports = {
       chainId: 1337,
     },
   },
-  solidity: "0.8.9",
+  solidity: '0.8.17',
 };
