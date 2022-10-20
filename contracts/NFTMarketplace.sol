@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-// erc721.org
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -9,17 +8,14 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "hardhat/console.sol";
 
 contract NFTMarketplace is ERC721URIStorage {
-    // Counter for tokenIds
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     Counters.Counter private _itemsSold;
 
-    // Mapping for tokenIds to price
     uint256 listingPrice = 0.025 ether;
     address payable owner;
     mapping(uint256 => MarketItem) private idToMarketItem;
 
-    // Struct for market item
     struct MarketItem {
         uint256 tokenId;
         address payable seller;
@@ -28,7 +24,6 @@ contract NFTMarketplace is ERC721URIStorage {
         bool sold;
     }
 
-    // Event for when a new item is listed
     event MarketItemCreated(
         uint256 indexed tokenId,
         address seller,
@@ -37,12 +32,10 @@ contract NFTMarketplace is ERC721URIStorage {
         bool sold
     );
 
-    // Constructor
-    constructor() ERC721("NFTMarketplace", "NFTM") {
+    constructor() ERC721("Metaverse Tokens", "METT") {
         owner = payable(msg.sender);
     }
 
-    // Get listing price
     function updateListingPrice(uint256 _listingPrice) public payable {
         require(
             owner == msg.sender,
@@ -55,7 +48,6 @@ contract NFTMarketplace is ERC721URIStorage {
         return listingPrice;
     }
 
-    // Create market item
     function createToken(string memory tokenURI, uint256 price)
         public
         payable
@@ -96,7 +88,6 @@ contract NFTMarketplace is ERC721URIStorage {
         );
     }
 
-    // Fetch market items
     function resellToken(uint256 tokenId, uint256 price) public payable {
         require(
             idToMarketItem[tokenId].owner == msg.sender,
@@ -149,7 +140,6 @@ contract NFTMarketplace is ERC721URIStorage {
         return items;
     }
 
-    // Fetches all the items that a user has purchased
     function fetchMyNFTs() public view returns (MarketItem[] memory) {
         uint256 totalItemCount = _tokenIds.current();
         uint256 itemCount = 0;
